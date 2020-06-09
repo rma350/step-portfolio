@@ -2,17 +2,75 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>Ross Anderson's Personal Google Webpage</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
-      <div id="greeting-container"></div>
-    </div>
+    <h1>Ross Anderson's Personal Google Webpage</h1>
+    <img src="images/ross_picture.jpg" height="400" width="auto">
+    <h2>Bio</h2>
+    <p>I am a software engineer in the Google Operations Research team in Cambridge MA. I have been at Google for 6 years. I was previously at MIT, where I obtained my PhD from the Operations Research Center under the supervision of <a href="http://www.mit.edu/~gamarnik/home.html">David Gamarnik</a> and <a href="https://web.stanford.edu/~iashlagi/">Itai Ashlagi</a>.</p>
+    <h2>Research Areas</h2>
+    <p>My current work on is focused in two areas:
+    <ul>
+      <li><i>Problems in the intersection of optimization and machine learning.</i>  In particular, the problem I have been most focused on is finding the input which maximizes the output of a trained neural network. See <a href="mit_iap_2020_ross_anderson.pdf">these slides</a> from a recent talk I gave at the MIT ORC for an overview.</li>
+      <li><i>Google's infrastructure for solving optimization problems.</i> Here, I have been most focused on adding support for advanced MIP features (like callbacks) to Google's open source OR library <a href="https://developers.google.com/optimization">or-tools</a>. Building a tool that is both performant and interoperable across solvers leads to a variety of interesting algorithmic and engineering challenges.</li>
+    </ul>
+    <p><i>Previous work</i>. While at MIT, I worked mostly in the areas of queueing theory and random graphs. I was also focused on the application of living donor kidney exchange. At Google, I spent two years working on computer graphics for free hand drawing (as seen in Google Keep and the Chrome pdf editor). On the OR team, I worked on a scheduling problem in the XLA compiler (no publication available, <a href="https://arxiv.org/pdf/1905.02494.pdf">some related work</a>).</p>
+    <h2>Operations Research at Google Cambridge</h2>
+    <p>A bit about the group.</p>
+
+    <p><b>Expertise.</b> First and foremost, our greatest strength is in modeling optimization problems and formulating computationally tractable solutions. Often this is with MIP, but the group has experience with a wide range of methods (LP, MINLP, CP, Convex Optimization, Stochastic Optimization, Bayesian Optimization, and RL/ADP to name a few). We have a strong engineering culture and are more focused on building reusable infrastructure, rather than doing one off analyses. Most of our team's software is written in C++.</p>
+
+    <p>Some current members:</p>
+    <ul>
+      <li><a href="https://scholar.google.com/citations?user=fMOQBJUAAAAJ&hl=en&oi=ao">Christian Tjandraatmadja</a></li>
+      <li> Krunal Patel</li>
+      <li> <a href="http://web.mit.edu/jvielma/www/">Juan Pablo Vielma</a></li>
+      <li> <a href="https://scholar.google.com/citations?user=7KSvWuQAAAAJ&hl=en">Daniel Espinoza</a></li>
+      <li> <a href="https://research.google/people/JonOrwant/">Jon Orwant</a></li>
+    </ul>
+    <p>Current visitors:</p>
+    <ul>
+      <li>Ted Papalexopoulos (intern)</li>
+      <li><a href="https://adelarue.github.io/">Brandon Jones</a> (intern)</li>
+      <li><a href="https://jeremyweiss-step-2020.appspot.com/#">Jeremy Weiss</a> (intern)</li>
+      <li><a href="http://diegoesc-step-2020.appspot.com/">Diego Escobedo</a> (intern)</li>
+    </ul>
+    <p>Previous visitors:</p>
+    <ul>
+      <li><a href="https://adelarue.github.io/">Arthur Delarue</a> (intern, back at MIT)</li>
+      <li><a href="https://yeesian.com/">Yeesian Ng</a> (intern, now at Google in MTV)</li>
+      <li><a href="https://joehuchette.github.io/">Joey Huchette</a> (Postdoc, now at Rice)</li>
+      <li><a href="http://www.columbia.edu/~wm2428/">Will Ma</a> (Postdoc, now at Columbia)</li>
+    </ul>
+    
+    <h2>Prospective Googlers who want to do OR (interns, postdocs, visiting faculty, full time)</h2>
+        <p>I am not a hiring manager. The statements below are my personal opinions and not Google policy.</p>
+        <p>A common question I get is, "How can I do OR at Google?" There is no simple answer to this question, as Google is a huge company. There are people doing OR on product teams, infrastructure teams, and research teams, in a variety of roles (software engineer, research scientist, data scientists/statistician). Rather than try and give a comprehensive answer, I will give a short summary of the type of what I look for in candidates I will be working with.</p>
+        <ul>
+          <li><i>Background in Operations Research/a related field/mathematical maturity.</i> Much of the work we do is mathematical and open ended. Experience in a research setting is very useful. Many members of the team have an advanced degree (some were even previously professors), but this not a hard requirement.</li>
+          <li><i>Experience with and interest in solving hard engineering problems.</i> Everyone on the team is a strong coder. Experience with particular technologies is less important, as you learn on the job. However, everyone needs to be ready to build things themselves, there is no one to build things for you.</li>
+          <li><i>Interest in working in a larger collaboration.</i> A big advantage we have over academia is that we can solve problems that require a high degree of engineering complexity, as we do not rely on a rotating cast of graduate students for engineering. However, we need to reach a consensus on what problems we want to solve and remain focused on them.</li>
+        </ul>
+        <p>In general, Google Research is always looking to opportunistically hire exceptional candidates, and the OR team is no exception (subject to resource constraints). If you think you meet the above criteria, please apply to Google. However, note that due to COVID-19, hiring will be much slower in the immediate future.</p>
+    <h2>Publications</h2>
+    <p>See my <a href="https://scholar.google.com/citations?user=8wAjOQkAAAAJ">Google scholar page</a> for a complete list.</p>
+    <h2>Previous/Other websites</h2>
+    <ul>
+      <li><a href="https://research.google/people/RossMichaelAnderson/">Google research</a></li>
+      <li><a href="https://scholar.google.com/citations?user=8wAjOQkAAAAJ">Google scholar</a></li>
+      <li><a href="https://github.com/rma350">My github</a> </li>
+      <li><a href="https://rma350.github.io">My previous website</a> (2014ish)</li>
+    </ul>
+    <h2>Personal</h2>
+    <p>I live in Somerville MA with my wife Aileen and my daughter Hailey.</p>
+    <h2>Disclaimer</h2>
+    <p>This is not an official Google product. It is a website I put up that no one has told me to take down yet.</p>
+    <h2>STEP functionality </h2>
+    <p>I am currently hosting STEP interns at Google and am using this website 
+      to help test their projects. <a href="step.html">This content</a> is solely for this
+      purpose.</p>
   </body>
 </html>
