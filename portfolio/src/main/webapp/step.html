@@ -8,10 +8,19 @@
   </head>
   <body>
     <div id="content">
-    <p><a href="index.html">Back to homepage</a>.</p>
-    <h1>Step demo</h1>
-     <button onclick="addRandomGreeting()">Hello</button>
-    <div id="greeting-container"></div>
+      <p><a href="index.html">Back to homepage</a>.</p>
+      <h1>Step demo</h1>
+      <button onclick="getAllComments()">Get All Comments</button>
+      <div id="comments">
+        <ul id="comment_list">
+        </ul>
+      </div>
+      <form action="/data" method="POST">
+        <p>Add your comment here:</p>
+        <textarea name="text-input"></textarea>
+        <br/><br/>
+        <input type="submit" />
+      </form>
     </div>
   </body>
 </html>
