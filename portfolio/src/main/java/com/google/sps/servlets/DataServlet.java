@@ -20,7 +20,11 @@ import com.google.appengine.api.datastore.Entity;
 import com.google.appengine.api.datastore.PreparedQuery;
 import com.google.appengine.api.datastore.Query;
 import com.google.appengine.api.datastore.Query.SortDirection;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 import com.google.gson.Gson;
+import com.google.sps.servlets.LoginServlet.LoginStatus;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.ArrayList;
@@ -31,15 +35,25 @@ import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/data")
 public class DataServlet extends HttpServlet {
+  
+  static class Comment {
+    String comment = "";
+    String userEmail = "";
+    long timestamp = 0L;
+  }
 
   @Override
   public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
     Query query = new Query("Comment").addSort("timestamp", SortDirection.DESCENDING);
     DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
     PreparedQuery results = datastore.prepare(query);
-    List<String> comments = new ArrayList<>();
+    List<Comment> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
-      comments.add((String)entity.getProperty("comment"));
+      Comment c = new Comment();
+      c.comment = (String)entity.getProperty("comment");
+      c.userEmail = (String)entity.getProperty("email");
+      c.timestamp = (Long)entity.getProperty("timestamp");
+      comments.add(c);
     }
     response.setContentType("application/json;");
     Gson gson = new Gson();
@@ -49,12 +63,20 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    UserService userService = UserServiceFactory.getUserService();
+    if(!userService.isUserLoggedIn()) {
+      // This shouldn't be reachable unless the user does something crazy.
+      response.sendRedirect("/step.html");
+      return;
+    }
+    String userEmail = userService.getCurrentUser().getEmail();
     String comment = request.getParameter("text-input");
     if(comment != null) {
       long timestamp = System.currentTimeMillis();
       Entity taskEntity = new Entity("Comment");
       taskEntity.setProperty("comment", comment);
       taskEntity.setProperty("timestamp", timestamp);
+      taskEntity.setProperty("email", userEmail);
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
       datastore.put(taskEntity);
     }
